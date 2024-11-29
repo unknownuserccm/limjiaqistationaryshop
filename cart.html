@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: beige;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 45px;
+            color: #333;
+            border-bottom: 4px double black;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td {
+            background-color: white;
+        }
+
+        .total-price {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .checkout-button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .checkout-button:hover {
+            background-color: darkgreen;
+        }
+
+        .empty-cart {
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        .footer-button {
+            background-color: #333;
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .footer-button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            color: darkgrey;
+        }
+    </style>
+    
+    <script>
+        function loadCart() 	
+ 	   {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartTable = document.getElementById('cart-table-body');
+            const totalPriceElement = document.getElementById('total-price');
+            let total = 0;
+
+            if (cart.length === 0) 
+	    {
+                document.getElementById('cart-container').innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
+                return;
+            }
+
+            cart.forEach((item, index) => 
+	{
+                total += item.price;
+                const row = `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>RM${item.price.toFixed(2)}</td>
+                    </tr>
+                `;
+                cartTable.innerHTML += row;
+            });
+
+            totalPriceElement.textContent = 'Total: RM' + total.toFixed(2);
+        }
+
+function proceedToCheckout() {
+    // Add any logic you want to run before redirecting
+    window.location.href = 'payment.html'; // Redirect to payment.html
+}
+    </script>
+</head>
+<body onload="loadCart()">
+
+    <h1>Your Cart</h1>
+
+    <div id="cart-container">
+        <table>
+            <thead>I
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="cart-table-body">
+                <!-- Cart items will be loaded here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <p id="total-price" class="total-price"></p>
+
+    <button class="checkout-button" onclick="proceedToCheckout()">Proceed to Checkout</button>
+
+    <footer>
+        <button class="footer-button" onclick="window.location.href='homemenu.html'">Continue Shopping</button>
+        <h3>Copyright &copy; All rights reserved</h3>
+    </footer>
+
+</body>
+</html>

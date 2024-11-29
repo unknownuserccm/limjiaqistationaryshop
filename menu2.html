@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starter Store</title>
+    <style>
+        body {
+            background-color: beige;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 45px;
+            text-align: center;
+            color: #333;
+            border-bottom: 4px double black;
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: separate;
+            border-spacing: 20px;
+        }
+
+        th {
+            vertical-align: top;
+            text-align: left;
+        }
+
+        img {
+            border: 5px double black;
+            width: 250px;
+            height: 200px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #000;
+        }
+
+        p {
+            font-size: 18px;
+            color: grey;
+        }
+	.cart-button {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: grey;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-button:hover {
+            background-color: darkgreen;
+        }
+
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: darkgrey;
+            padding: 20px 0;
+            border-top: 1px solid #ccc;
+        }
+
+        .footer-button {
+            background-color: #333;
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-button:hover {
+            background-color: #555;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            table {
+                width: 95%;
+                border-spacing: 10px;
+            }
+
+            img {
+                width: 200px;
+                height: 150px;
+            }
+
+            h1 {
+                font-size: 35px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+    <!-- JavaScript for Cart Functionality -->
+    <script>
+        let cart = [];
+
+        function addToCart(itemName, price) {
+            cart.push({ name: itemName, price: price });
+            alert(itemName + " has been added to your cart!");
+            localStorage.setItem("cart", JSON.stringify(cart)); // Save cart in local storage
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Product Selection</h1>
+    <table>
+        <tr>
+            <th><img src="book1.jpg" alt="The Clever Fox"></th>
+            <th>
+                <h2>The Clever Fox</h2>
+                <p>A charming tale of cleverness and adventure.</p>
+                <h2>RM15</h2>
+                <button class="cart-button" onclick="addToCart('The Clever Fox', 15)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th><img src="book2.jpg" alt="Story Time Stars"></th>
+            <th>
+                <h2>Story Time Stars</h2>
+                <p>A collection of delightful bedtime stories.</p>
+                <h2>RM20</h2>
+                <button class="cart-button" onclick="addToCart('Story Time Stars', 20)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th><img src="book3.jpg" alt="Little Giraffes Big Ideas"></th>
+            <th>
+                <h2>Little Giraffes Big Ideas</h2>
+                <p>Inspiring stories for little dreamers.</p>
+                <h2>RM18</h2>
+                <button class="cart-button" onclick="addToCart('Little Giraffes Big Ideas', 18)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th><img src="book4.jpg" alt="The Be Kind Bible"></th>
+            <th>
+                <h2>The Be Kind Bible</h2>
+                <p>A gentle introduction to kindness and compassion.</p>
+                <h2>RM25</h2>
+                <button class="cart-button" onclick="addToCart('The Be Kind Bible', 25)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th><img src="book5.jpg" alt="Disney Christmas Storybook Collection"></th>
+            <th>
+                <h2>Disney Christmas Storybook Collection</h2>
+                <p>Festive tales from your favorite Disney characters.</p>
+                <h2>RM30</h2>
+                <button class="cart-button" onclick="addToCart('Disney Christmas Storybook Collection', 30)">Add to Cart</button>
+            </th>
+        </tr>
+    </table>
+
+    <footer>
+        <h3>Copyright &copy; All rights reserved</h3>
+    </footer>
+</body>
+</html>

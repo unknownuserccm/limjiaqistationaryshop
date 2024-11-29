@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starter Store</title>
+    <style>
+        body {
+            background-color: beige;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 45px;
+            text-align: center;
+            color: #333;
+            border-bottom: 4px double black;
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: separate;
+            border-spacing: 20px;
+        }
+
+        th {
+            vertical-align: top;
+            text-align: left;
+        }
+	.cart-button {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: grey;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-button:hover {
+            background-color: darkgreen;
+        }
+
+        img {
+            border: 5px double black;
+            width: 250px;
+            height: 200px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #000;
+        }
+
+        p {
+            font-size: 18px;
+            color: grey;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: darkgrey;
+            padding: 20px 0;
+            border-top: 1px solid #ccc;
+        }
+
+        .footer-button {
+            background-color: #333;
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-button:hover {
+            background-color: #555;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            table {
+                width: 95%;
+                border-spacing: 10px;
+            }
+
+            img {
+                width: 200px;
+                height: 150px;
+            }
+
+            h1 {
+                font-size: 35px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+    <!-- JavaScript for Cart Functionality -->
+    <script>
+        let cart = [];
+
+        function addToCart(itemName, price) {
+            cart.push({ name: itemName, price: price });
+            alert(itemName + " has been added to your cart!");
+            localStorage.setItem("cart", JSON.stringify(cart)); // Save cart in local storage
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Product Selection</h1>
+    <table>
+        <tr>
+            <th><img src="img1.jpg" alt="Pen"></th>
+            <th>
+                <h2>Pen</h2>
+                <p>A set of pens perfect for writing smoothly.</p>
+                <h2>RM5.90 for 6 Pens</h2>
+                <button class="cart-button" onclick="addToCart('Pen', 5.90)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th><img src="img2.jpg" alt="Pencil"></th>
+            <th>
+                <h2>Pencil</h2>
+                <p>Classic 2B pencil, ideal for writing and sketching.</p>
+                <h2>RM5 for 3 Pencils</h2>
+                <button class="cart-button" onclick="addToCart('Pencil', 5)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th><img src="img3.jpg" alt="Document Case"></th>
+            <th>
+                <h2>Handy Document Case</h2>
+                <p>A durable case to keep your papers organized.</p>
+                <h2>RM10</h2>
+                <button class="cart-button" onclick="addToCart('Document Case', 10)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th><img src="img4.jpg" alt="Brush"></th>
+            <th>
+                <h2>Brush</h2>
+                <p>A simple brush for everyday use.</p>
+                <h2>RM1 each</h2>
+                <button class="cart-button" onclick="addToCart('Brush', 1)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th><img src="img5.jpg" alt="Mechanical Pencil"></th>
+            <th>
+                <h2>Mechanical Pencil</h2>
+                <p>A precision mechanical pencil for fine writing.</p>
+                <h2>RM3 each</h2>
+                <button class="cart-button" onclick="addToCart('Mechanical Pencil', 3)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <!-- New products 6-10 -->
+        <tr>
+            <th><img src="img6.jpg" alt="48 Luna Colour Pencil"></th>
+            <th>
+                <h2>48 Luna Colour Pencil</h2>
+                <p>A complete set of 48 vibrant coloured pencils.</p>
+                <h2>RM20</h2>
+                <button class="cart-button" onclick="addToCart('48 Luna Colour Pencil', 20)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th><img src="img7.jpg" alt="Bunchi Poster Colour"></th>
+            <th>
+                <h2>Bunchi Poster Colour</h2>
+                <p>A versatile set of poster colours for art and projects.</p>
+                <h2>RM15</h2>
+                <button class="cart-button" onclick="addToCart('Bunchi Poster Colour', 15)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th><img src="img8.jpg" alt="Eraser"></th>
+            <th>
+                <h2>Eraser</h2>
+                <p>A soft eraser perfect for clean erasing without tearing paper.</p>
+                <h2>RM2</h2>
+                <button class="cart-button" onclick="addToCart('Eraser', 2)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th><img src="img9.jpg" alt="Glue"></th>
+            <th>
+                <h2>Glue</h2>
+                <p>A multipurpose glue for all your sticking needs.</p>
+                <h2>RM3</h2>
+                <button class="cart-button" onclick="addToCart('Glue', 3)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th><img src="img10.jpg" alt="Scissors"></th>
+            <th>
+                <h2>Scissors</h2>
+                <p>Durable scissors for cutting with ease.</p>
+                <h2>RM5</h2>
+                <button class="cart-button" onclick="addToCart('Scissors', 5)">Add to Cart</button>
+            </th>
+        </tr>
+    </table>
+
+    <footer>
+        <h3>Copyright &copy; All rights reserved</h3>
+    </footer>
+</body>
+</html>

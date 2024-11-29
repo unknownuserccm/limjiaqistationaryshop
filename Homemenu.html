@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url(Menu.webp);
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+
+        .cart-button 	
+	{
+            display: inline-block;
+            margin-top: 10px;
+            background-color: grey;
+            color: white;
+	    margin-left: 650px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-button:hover 
+	{
+            background-color: darkgreen;
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(30px);
+            border-bottom: 4px double black;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .navbar a {
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: grey;
+        }
+
+        header img {
+            width: 200px;
+            height: auto;
+            margin: 30px auto;
+            display: block;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 50px;
+            color: white;
+        }
+
+        .slider-container {
+            text-align: center;
+            margin: 50px auto;
+        }
+
+        img[name="slider"] {
+            width: 500px;
+            height: auto;
+            border: 5px solid black;
+            transition: transform 0.5s ease;
+        }
+
+        img[name="slider"]:hover {
+            transform: scale(1.05);
+        }
+
+        .section-title {
+            font-size: 80px;
+            text-align: center;
+            margin: 50px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(30px);
+            padding: 20px;
+            border: 5px solid black;
+            font-family: 'Edwardian Script ITC';
+        }
+
+        .menu-links {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .menu-links a {
+            font-size: 24px;
+            padding: 15px 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(30px);
+            border: 2px double black;
+            text-decoration: none;
+            color: black;
+            margin: 10px;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .menu-links a:hover {
+            background-color: orangered;
+            color: white;
+        }
+
+        .iframe-container {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        iframe {
+            border: none;
+            width: 80%;
+            height: 600px;
+            border: 5px solid black;
+        }
+
+        form {
+            background-color: saddlebrown;
+            padding: 30px;
+            width: 80%;
+            margin: 50px auto;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        form input[type="text"], form input[type="date"], form input[type="email"] {
+            padding: 10px;
+            margin: 10px;
+            width: 40%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        form input[type="submit"] {
+            padding: 10px 20px;
+            background-color: lightblue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: deepskyblue;
+        }
+
+        footer {
+            background-color: rgba(20, 20, 20, 0.8);
+            padding: 50px;
+            color: white;
+            text-align: center;
+            backdrop-filter: blur(30px);
+        }
+
+        footer nav a {
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        footer nav a:hover {
+            color: darkgrey;
+        }
+
+        footer hr {
+            width: 80%;
+            margin: 30px auto;
+        }
+
+        footer h3 {
+            margin-top: 30px;
+            font-size: 18px;
+            color: darkgrey;
+        }
+    </style>
+    <script>
+        var count = 0;
+        var images = ["img1.jpg", "img2.jpg", "img4.jpg", "img5.jpg", "img6.jpg"];
+        
+        function changeImage() {
+            document.slider.src = images[count];
+            count = (count + 1) % images.length;
+            setTimeout(changeImage, 2000);
+        }
+
+        function viewCart() {
+            window.location.href = "cart.html"; // Redirect to the cart page
+        }
+    </script>
+</head>
+
+<body onload="changeImage()">
+    <header>
+        <div class="navbar">
+           
+            <a href="#menu" style="background-color: black;">Home</a>
+            <a href="location.html">Location</a>
+        </div>
+
+        <img src="logo.png" alt="Jia qi shop Logo">
+        <h1 class="title">Jia qi shop</h1>
+    </header>
+
+    <section>
+        <div class="slider-container">
+            <img name="slider" alt="Slideshow Image">
+        </div>
+
+        <h2 class="section-title">Popular Search</h2>
+    </section>
+
+    <section class="menu-links">
+        <a href="menu1.html" target="link">Essential</a>
+        <a href="menu2.html" target="link">Books</a>
+        <a href="menu3.html" target="link">Leisure</a>
+    </section>
+
+    <section class="iframe-container">
+        <iframe name="link" src="menu1.html"></iframe>
+    </section>
+
+    <button class="cart-button" onclick="viewCart()">View Cart</button>
+
+    <section>
+        <form method="post" action="mailto:jiaqi0218@gmail.com">
+            <label>Our New and Offer</label>
+            <hr>
+            <label>Subscribe for New Updates!</label>
+            <br>
+            <input type="text" required placeholder="Please enter your first name *">
+            <input type="text" required placeholder="Please enter your last name *">
+            <input type="email" required placeholder="Please enter your Email *">
+            <br>
+            <input type="date" required>
+            <input type="text" placeholder="Please enter your phone number (Optional)" pattern="[0-9]{10}">
+            <br>
+            <input type="checkbox"> 
+            <em style="font-size: 10px;">By signing up, you agree to receive marketing updates from Jia Qi. More details in our Privacy Policy.</em>
+            <br><br>
+            <input type="submit" value="Subscribe">
+        </form>
+    </section>
+
+    <footer>
+        <nav>
+            <a href="FAQ.html">FAQ</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="location.html">Contact Us</a>
+        </nav>
+        <hr>
+        <h3>Copyright &copy; All rights reserved</h3>
+    </footer>
+</body>
+</html>

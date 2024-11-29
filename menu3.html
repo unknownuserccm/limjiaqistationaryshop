@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xia Qi Shop - Leisure Items</title>
+    <style>
+        body {
+            background-color: beige;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 45px;
+            text-align: center;
+            color: #333;
+            border-bottom: 4px double black;
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: separate;
+            border-spacing: 20px;
+        }
+
+        th {
+            vertical-align: top;
+            text-align: left;
+        }
+
+        img {
+            border: 5px double black;
+            width: 250px;
+            height: 200px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #000;
+        }
+
+        p {
+            font-size: 18px;
+            color: grey;
+        }
+
+        .cart-button {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: grey;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-button:hover {
+            background-color: darkgreen;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: darkgrey;
+            padding: 20px 0;
+            border-top: 1px solid #ccc;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            table {
+                width: 95%;
+                border-spacing: 10px;
+            }
+
+            img {
+                width: 200px;
+                height: 150px;
+            }
+
+            h1 {
+                font-size: 35px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+    <!-- JavaScript for Cart Functionality -->
+    <script>
+        let cart = [];
+
+        function addToCart(itemName, price) {
+            cart.push({ name: itemName, price: price });
+            alert(itemName + " has been added to your cart!");
+            localStorage.setItem("cart", JSON.stringify(cart)); // Save cart in local storage
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Leisure Product Selection</h1>
+    <table>
+        <tr>
+            <th><img src="leisure1.jpg" alt="Jigsaw Puzzle"></th>
+            <th>
+                <h2>Jigsaw Puzzle</h2>
+                <p>Challenge your mind with our beautiful jigsaw puzzles.</p>
+                <h2>RM25</h2>
+                <button class="cart-button" onclick="addToCart('Jigsaw Puzzle', 25)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th><img src="leisure2.jpg" alt="Cubes"></th>
+            <th>
+                <h2>Cubes</h2>
+                <p>Fun and engaging cubes for all ages.</p>
+                <h2>RM15</h2>
+                <button class="cart-button" onclick="addToCart('Cubes', 15)">Add to Cart</button>
+            </th>
+        </tr>
+
+        <tr>
+            <th><img src="leisure3.jpg" alt="Puzzle Tacto"></th>
+            <th>
+                <h2>Puzzle Tacto</h2>
+                <p>A tactile puzzle experience that enhances learning.</p>
+                <h2>RM30</h2>
+                <button class="cart-button" onclick="addToCart('Puzzle Tacto', 30)">Add to Cart</button>
+            </th>
+        </tr>
+    </table>
+
+    <footer>
+        <h3>Copyright &copy; All rights reserved</h3>
+    </footer>
+</body>
+</html>
